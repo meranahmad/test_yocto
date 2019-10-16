@@ -3,7 +3,7 @@ obj-m := test.o
 SRC := $(shell pwd)
 
 all:
-	$(MAKE) -C $(KERNEL_SRC) M=$(SRC)
+	$(MAKE) KBUILD_CHECKSRC=1 -C $(KERNEL_SRC) M=$(SRC)
 
 modules_install:
 	$(MAKE) -C $(KERNEL_SRC) M=$(SRC) modules_install
